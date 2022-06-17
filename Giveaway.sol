@@ -171,8 +171,8 @@ contract Giveaway is VRFConsumerBaseV2 {
     ) internal override {
         // a random number that will represent the index
         // of the winning address in the list of addresses.
-        // the number is between 0 and the length of the array of addresses - 1
-        uint256 randomNumber = (randomWords[0] % (addresses.length - 1));
+        // the number is between 0 and the length of the array of addresses
+        uint256 randomNumber = (randomWords[0] % (addresses.length));
         winner = addresses[randomNumber];
         games[s_requestId] = addresses[randomNumber];
         emit Winner(winner, s_requestId);
